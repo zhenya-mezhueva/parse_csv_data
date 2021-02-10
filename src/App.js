@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { parse } from 'papaparse';
+import { camelCase } from "camel-case";
+
 import './App.css';
 
 const App = () => {
@@ -10,7 +12,16 @@ const App = () => {
   const readText = async (data) => {
     if (data.type === "text/csv") {
       const text = await data.text();
-      const result = parse(text, { header: true });
+      const result = parse(text, {
+        header: true,
+        transform: function (value) {
+          return value.trim();
+        },
+        transformHeader: function (header) {
+          return camelCase(header);
+        }
+      });
+
       if (result.data.some(person => !person.fullName || !person.email || !person.phone)) {
         return false;
       }
@@ -154,7 +165,7 @@ const App = () => {
           <tr key={index}>
             <td>{index + 1}</td>
             <td>
-              {person.fullName.trim()}
+              {person.fullName}
             </td>
             <td className={person.phone.length < 10 && "invalid"}>
               {`+1${person.phone.slice(-10)}`}
