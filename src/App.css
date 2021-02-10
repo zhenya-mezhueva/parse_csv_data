@@ -1,24 +1,29 @@
 .container {
+  max-width: 1260px;
   margin: 0 auto;
+  padding: 20px 30px;
 }
 .drop {
-  width: 120px;
+  width: 200px;
   height: 40px;
+  color: #393e46;
   background-color: whitesmoke;
   border: 1px solid lightgrey;
+  border-radius: 5px;
   text-align: center;
   line-height: 40px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .drop--active {
-  background-color: lightgreen;
-  border: 1px solid darkgreen;
+  background-color: #a8dda8;
+  border: 1px solid #97c997;
 }
 
 .title {
   font-family: Roboto, sans-serif;
-  text-align: center;
+  color: #2d6187;
+  margin-bottom: 30px;
 }
 
 .inp-area {
@@ -26,14 +31,33 @@
 }
 table {
   border-collapse: collapse;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: #393e46;
+}
+
+th {
+  background-color: #d0e8f2;
+          /*#effad3;*/
+  text-align: center;
 }
 
 td, th {
-  border: 1px solid #999;
-  padding: 0.5rem;
+  border: 1px solid #aaaaaa;
+  padding: 10px;
   text-align: left;
 }
 
 .invalid {
-  background-color: lightcoral;
+  background-color: #FECCCB;
+}
+
+.error {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #FECCCB;
+  text-align: center;
+  line-height: 60px;
 }
